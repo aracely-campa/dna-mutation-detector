@@ -1,17 +1,16 @@
 <?php
-
 namespace App\Models;
 
-use MongoDB\Laravel\Eloquent\Model as Eloquent;
+use MongoDB\Laravel\Eloquent\Model; 
 
-class DnaRecord extends Eloquent
+class Dna extends Model
 {
     protected $connection = 'mongodb';
-
-    protected $fillable = ['dna', 'mutation'];
-
+    protected $collection = 'dnas';
+    protected $fillable = ['dna','mutation','hash'];
     protected $casts = [
         'dna' => 'array',
-        'mutation' => 'boolean'
+        'mutation' => 'boolean',
     ];
+    public $timestamps = true;
 }

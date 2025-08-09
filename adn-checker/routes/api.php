@@ -1,3 +1,5 @@
+<?php
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DnaController;
 
 Route::post('/mutation', [DnaController::class, 'mutation']);

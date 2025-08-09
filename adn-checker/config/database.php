@@ -115,7 +115,7 @@ return [
         'mongodb' => [
     'driver' => 'mongodb',
     'dsn' => env('DB_DSN'),
-    'database' => env('DB_DATABASE', 'adn_checker'),
+    'database' => env('DB_DATABASE', 'Project0'),
 ],
 
 
