@@ -1,7 +1,7 @@
 <?php
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DnaController;
 
-Route::post('/mutation', [DnaController::class, 'mutation']);
-Route::get('/stats', [DnaController::class, 'stats']);
-Route::get('/list', [DnaController::class, 'list']);
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('welcome');
+});
