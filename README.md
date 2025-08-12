@@ -19,7 +19,7 @@ Frontend en **Angular** y backend en **Laravel** con base de datos **MongoDB**.
 - Node.js >= 18
 - NPM o Yarn
 - MongoDB local o en la nube (Railway, Atlas, etc.)
-
+- git clone al front angular  https://github.com/aracely-campa/dna-mutation-front
 ---
 
 ## ⚙️ Instalación Backend (Laravel)
@@ -28,3 +28,5 @@ Frontend en **Angular** y backend en **Laravel** con base de datos **MongoDB**.
    ```bash
    git clone 
    cd adn-checker
+
+   
