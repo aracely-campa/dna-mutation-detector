@@ -1,6 +1,7 @@
 {
     "require": {
-        "mongodb/laravel-mongodb": "^2.3"
+        "mongodb/laravel-mongodb": "^2.3",
+        "fruitcake/laravel-cors": "^1.0"
     },
     "config": {
         "allow-plugins": {
