@@ -4,9 +4,11 @@ return [
     'paths' => ['api/*', 'sanctum/csrf-cookie', 'stats', 'mutation'],
     'allowed_methods' => ['*'],
     'allowed_origins' => [
-        'https://dna-mutation-detector-83aa.vercel.app',
-        'http://localhost:51890',
-    ],
+    'https://dna-mutation-detector-83aa.vercel.app',
+    'http://localhost:4200',
+    'http://localhost:51890'
+],
+
     'allowed_origins_patterns' => [],
     'allowed_headers' => ['*'],
     'exposed_headers' => [],
