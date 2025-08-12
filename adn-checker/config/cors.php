@@ -8,7 +8,7 @@ return [
 
     'allowed_origins' => [
         'http://localhost:51890',
-        'https://dna-mutation-detector-1.onrender.com'
+        'https://dna-mutation-detector-oius.vercel.app/'
     ],
 
     'allowed_origins_patterns' => [],

@@ -2,11 +2,15 @@
   "version": 2,
   "builds": [
     {
-      "src": "public/index.php",
+      "src": "adn-checker/public/index.php",
       "use": "@vercel/php"
     }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/public/index.php" }
-  ]
+    {
+      "src": "/(.*)",
+      "dest": "adn-checker/public/index.php"
+    }
+  ],
+  "installCommand": "cd adn-checker && curl -sS https://getcomposer.org/installer | php && php composer.phar install --no-dev --optimize-autoloader && php artisan key:generate"
 }
