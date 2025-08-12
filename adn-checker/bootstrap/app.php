@@ -1,3 +1,5 @@
+<?php
+
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -8,13 +10,11 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
-    ->withMiddleware(function (Middleware $middleware): void {
-        // Activar CORS
-        $middleware->global([
-            \Fruitcake\Cors\HandleCors::class,
-        ]);
-    })
+    ->withMiddleware(function (Middleware $middleware) {
+    $middleware->appendToGroup('api', \Illuminate\Http\Middleware\HandleCors::class);
+    $middleware->appendToGroup('web', \Illuminate\Http\Middleware\HandleCors::class);
+})
+
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();
-
