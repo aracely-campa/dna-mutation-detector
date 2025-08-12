@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y \
 COPY . /var/www/html
 
 # Establece permisos adecuados
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN mkdir -p /var/www/html/storage /var/www/html/bootstrap/cache && \
+    chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Habilita mod_rewrite para Apache
 RUN a2enmod rewrite
