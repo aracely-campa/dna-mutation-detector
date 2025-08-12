@@ -1,37 +1,39 @@
-# Imagen base de PHP con Apache
-FROM php:8.2-apache
 
-# Instalar dependencias necesarias para Laravel
-RUN apt-get update && apt-get install -y \
-    libzip-dev unzip git curl libpng-dev libonig-dev libxml2-dev \
-    && docker-php-ext-install pdo pdo_mysql zip
+FROM php:8.3-cli AS build
 
-# Copiar el proyecto Laravel al contenedor
-COPY adn-checker/ /var/www/html
-WORKDIR /var/www/html
+RUN apt-get update \
+    && apt-get install -y libssl-dev pkg-config unzip git curl netcat-openbsd \
+    && pecl install mongodb-1.21.0 \
+    && docker-php-ext-enable mongodb
+
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+WORKDIR /app
+
+COPY . .
+
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+RUN npm install
+RUN npm run build
+FROM php:8.3-cli
+
+RUN apt-get update \
+    && apt-get install -y libssl-dev pkg-config unzip git curl netcat-openbsd ca-certificates \
+    && update-ca-certificates \
+    && pecl install mongodb-1.21.0 \
+    && docker-php-ext-enable mongodb
 
 
-# Dar permisos a storage y bootstrap/cache
-RUN mkdir -p /var/www/html/storage /var/www/html/bootstrap/cache \
-    && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+WORKDIR /app
 
-# Instalar Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+COPY --from=build /app /app
 
-# Instalar dependencias de Laravel
-RUN composer install --no-dev --optimize-autoloader
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
 
-# Generar clave de aplicación
-RUN php artisan key:generate
+EXPOSE 8000
 
-# Habilitar mod_rewrite para Laravel
-RUN a2enmod rewrite
-
-# Copiar configuración personalizada de Apache
-COPY ./apache.conf /etc/apache2/sites-available/000-default.conf
-
-# Exponer puerto
-EXPOSE 80
-
-# Iniciar Apache
-CMD ["apache2-foreground"]
+CMD ["/start.sh"]
