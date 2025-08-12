@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+// routes/web.php
 Route::get('/', function () {
-    return view('welcome');
+    return response()->json(['message' => 'API Laravel funcionando en Vercel']);
 });
