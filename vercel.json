@@ -1,14 +1,13 @@
 {
   "version": 2,
-  "functions": {
-    "api/index.php": {
-      "runtime": "vercel-php@0.6.0"
-    }
-  },
-  "routes": [
+  "builds": [
     {
-      "src": "/(.*)",
-      "dest": "api/index.php"
+      "src": "public/index.php",
+      "use": "@vercel/php"
     }
-  ]
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/public/index.php" }
+  ],
+  "installCommand": "curl -sS https://getcomposer.org/installer | php && php composer.phar install --no-dev --optimize-autoloader"
 }
