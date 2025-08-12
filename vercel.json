@@ -6,5 +6,5 @@
   "routes": [
     { "src": "/(.*)", "dest": "/public/index.php" }
   ],
-  "installCommand": "composer install --no-dev --optimize-autoloader"
+  "installCommand": "curl -sS https://getcomposer.org/installer | php && php composer.phar install --no-dev --optimize-autoloader"
 }
