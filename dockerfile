@@ -19,7 +19,7 @@ RUN npm install
 RUN npm run build
 
 
-FASE 2: PRODUCCIÓN,
+
 
 FROM php:8.4.11-cli
 
