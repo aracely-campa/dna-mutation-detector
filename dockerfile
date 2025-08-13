@@ -10,7 +10,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 WORKDIR /app
 
-COPY adn-checker/ .   # 👈 si tu Laravel está en carpeta
+COPY adn-checker/ 
 
 RUN composer install --ignore-platform-reqs --no-interaction --prefer-dist --optimize-autoloader
 
