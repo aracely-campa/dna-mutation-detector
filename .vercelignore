@@ -1,6 +1,0 @@
-node_modules
-vendor
-storage/*.key
-.env
-.DS_Store
-.git

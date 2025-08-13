@@ -1,5 +1,7 @@
 <?php
-use Jenssegers\Mongodb\Eloquent\Model;
+namespace App\Models;
+
+use MongoDB\Laravel\Eloquent\Model; 
 
 class Dna extends Model
 {
