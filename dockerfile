@@ -18,10 +18,10 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 RUN npm install
 RUN npm run build
 
-=========================,
+
 FASE 2: PRODUCCIÓN,
-=========================,
-FROM php:8.3-cli
+
+FROM php:8.4.11-cli
 
 RUN apt-get update \
     && apt-get install -y libssl-dev pkg-config unzip git curl netcat-openbsd ca-certificates \
