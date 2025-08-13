@@ -1,53 +1,61 @@
-# DnaMutationDetectorFrontend
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.5.
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-## Development server
+## About Laravel
 
-To start a local development server, run:
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-```bash
-ng serve
-```
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-# Proyecto Detector de Mutaciones de ADN
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-Este proyecto consta de dos partes:
+## Learning Laravel
 
-1. **Backend (Laravel + MongoDB)**  
-   Proporciona la API para detectar mutaciones en cadenas de ADN y guardar el historial en base de datos.
-   Endpoints principales:
-   - POST /mutation → Recibe una matriz NxN de ADN y responde si tiene mutación.
-   - GET /stats → Devuelve estadísticas de mutaciones detectadas y no detectadas.
-   - GET /list → Lista las últimas 10 verificaciones realizadas con su ADN, resultado y fecha.
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-2. **Frontend (Angular)**  
-   Interfaz web que consume los servicios del backend:
-   - Muestra las estadísticas en el encabezado.
-   - Permite ingresar una cadena de ADN para verificar si tiene mutación.
-   - Muestra en tabla las últimas 10 verificaciones.
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-## Ejemplos de uso API
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-Detectar mutación:
-curl -X POST "https://wise-kingfisher-1srtohrus-a8b5aca5.koyeb.app/mutation" \
--H "Content-Type: application/json" \
--d '{"dna":["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]}'
+## Laravel Sponsors
 
-Ver estadísticas:
-curl "https://wise-kingfisher-1srtohrus-a8b5aca5.koyeb.app/stats"
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-Listado últimas peticiones:
-curl "https://wise-kingfisher-1srtohrus-a8b5aca5.koyeb.app/list"
+### Premium Partners
 
-## Ejemplos de ADN
-Mutado: ATGCGA,CAGTGC,TTATGT,AGAAGG,CCCCTA,TCACTG  
-No mutado: ATGCGA,CAGTGC,TTATTT,AGACGG,GCGTCA,TCACTG
+- **[Vehikl](https://vehikl.com)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Redberry](https://redberry.international/laravel-development)**
+- **[Active Logic](https://activelogic.com)**
 
+## Contributing
 
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Code of Conduct
 
-## Additional Resources
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Security Vulnerabilities
+
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
